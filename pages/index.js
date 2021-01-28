@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 
 import db from '../db.json';
 import QuizLogo from '../src/components/QuizLogo';
@@ -21,6 +22,9 @@ padding: 15px;
 `;
 
 export default function Home() {
+  const router = useRouter();
+  const [name, setName] = React.useState('');
+
   return (
     <QuizBackground backgroundImage={db.bg}>
       <Head>
@@ -29,21 +33,46 @@ export default function Home() {
       </Head>
       <QuizContainer>
         <QuizLogo />
+
+        {/* Widget top */}
+
         <Widget>
           <Widget.Header>
             <h1>Lil Peep</h1>
           </Widget.Header>
-          <Widget.Content>
 
-            <p>lorem imp askjdhkb o  poaspsh  idhf fdsijo  </p>
+          <Widget.Content>
+            <form onSubmit={function (eventInfo) {
+              router.push(`/quiz/name=${name}`);
+              eventInfo.preventDefault();
+              // router
+            }}
+            >
+              <input
+                onChange={function (eventInfo){
+                  // name = 
+                  setName(eventInfo.target.value);
+                }}
+                placeholder="Insira o seu nome" />
+              <button type="submit" disabled={name.length === 0}>
+                Jogar&nbsp;
+                {name}
+              </button>
+            </form>
           </Widget.Content>
         </Widget>
+
+        {/* Widget bottom */}
+
         <Widget>
           <Widget.Content>
             <h1>Lil Peep</h1>
             <p>lorem imp askjdhkb o  po sjd jashd </p>
           </Widget.Content>
         </Widget>
+
+        {/* Footer */}
+
         <Footer />
       </QuizContainer>
       <GitHubCorner projectUrl="https://github.com/william-almeida/imersao-react" />

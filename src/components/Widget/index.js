@@ -33,17 +33,6 @@ Widget.Header = styled.header`
 `;
 
 Widget.Content = styled.div`
-  diplay: flex;
-  button, input {
-    width: 100%;
-    height: 40px;
-  }
-  button{
-    margin-top: 20px;
-    background-color:${({ theme }) => theme.colors.primary};
-    border: none;
-    border-radius: ${({ theme }) => theme.borderRadius};
-  }
   padding: 24px 32px 32px 24px;
   & > *:first-child {
     margin-top: 0;

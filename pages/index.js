@@ -9,6 +9,7 @@ import Widget from '../src/components/Widget';
 import QuizBackground from '../src/components/QuizBackground';
 import Footer from '../src/components/Footer';
 import GitHubCorner from '../src/components/GitHubCorner';
+import Input from '../src/components/Input';
 
 export const QuizContainer = styled.div`
 width: 100%;
@@ -48,7 +49,8 @@ export default function Home() {
               eventInfo.preventDefault();
             }}
             >
-              <input
+              <Input
+                // eslint-disable-next-line react/jsx-no-bind
                 onChange={function (eventInfo) {
                   setName(eventInfo.target.value);
                 }}

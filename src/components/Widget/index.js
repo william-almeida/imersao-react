@@ -1,19 +1,11 @@
 import styled from 'styled-components';
 
 const Widget = styled.div`
-  button, input {
-    width: 100%;
-  }
-  button{
-    background-color:${({ theme }) => theme.colors.primary};
-    color: ${({theme}) => theme.contrastText};
-    font
-  }
   margin-top: 24px;
   margin-bottom: 24px;
   border: 2px solid ${({ theme }) => theme.colors.primary};
   background-color: ${({ theme }) => theme.colors.mainBg};
-  color: #000;
+  color: ${({ theme }) => theme.colors.contrastText};
   border-radius: 4px;
   overflow: hidden;
   h1, h2, h3 {
@@ -41,6 +33,17 @@ Widget.Header = styled.header`
 `;
 
 Widget.Content = styled.div`
+  diplay: flex;
+  button, input {
+    width: 100%;
+    height: 40px;
+  }
+  button{
+    margin-top: 20px;
+    background-color:${({ theme }) => theme.colors.primary};
+    border: none;
+    border-radius: ${({ theme }) => theme.borderRadius};
+  }
   padding: 24px 32px 32px 24px;
   & > *:first-child {
     margin-top: 0;

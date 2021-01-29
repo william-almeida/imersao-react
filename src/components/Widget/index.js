@@ -1,10 +1,18 @@
 import styled from 'styled-components';
 
 const Widget = styled.div`
+  button, input {
+    width: 100%;
+  }
+  button{
+    background-color:${({ theme }) => theme.colors.primary};
+    color: ${({theme}) => theme.contrastText};
+    font
+  }
   margin-top: 24px;
   margin-bottom: 24px;
-  border: 1px;
-  background-color: #FFF;
+  border: 2px solid ${({ theme }) => theme.colors.primary};
+  background-color: ${({ theme }) => theme.colors.mainBg};
   color: #000;
   border-radius: 4px;
   overflow: hidden;

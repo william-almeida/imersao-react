@@ -23,6 +23,7 @@ padding: 15px;
 
 export default function Home() {
   const router = useRouter();
+  // content - function
   const [name, setName] = React.useState('');
 
   return (
@@ -45,15 +46,14 @@ export default function Home() {
             <form onSubmit={function (eventInfo) {
               router.push(`/quiz/name=${name}`);
               eventInfo.preventDefault();
-              // router
             }}
             >
               <input
-                onChange={function (eventInfo){
-                  // name = 
+                onChange={function (eventInfo) {
                   setName(eventInfo.target.value);
                 }}
-                placeholder="Insira o seu nome" />
+                placeholder="Insira o seu nome"
+              />
               <button type="submit" disabled={name.length === 0}>
                 Jogar&nbsp;
                 {name}

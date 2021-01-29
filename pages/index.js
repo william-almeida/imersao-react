@@ -50,8 +50,8 @@ export default function Home() {
             }}
             >
               <Input
-                // eslint-disable-next-line react/jsx-no-bind
-                onChange={function (eventInfo) {
+                name="userName"
+                onChange={(eventInfo) => {
                   setName(eventInfo.target.value);
                 }}
                 placeholder="Insira o seu nome"

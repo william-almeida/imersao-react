@@ -12,7 +12,7 @@ import GitHubCorner from '../src/components/GitHubCorner';
 import Input from '../src/components/Input';
 import Button from '../src/components/Button';
 
-export const QuizContainer = styled.div`
+const QuizContainer = styled.div`
 width: 100%;
 max-width: 350px;
 padding-top: 45px;
@@ -31,7 +31,7 @@ export default function Home() {
   return (
     <QuizBackground backgroundImage={db.bg}>
       <Head>
-        <title>Lil Peep Quiz</title>
+        <title>{db.title}</title>
 
       </Head>
       <QuizContainer>
@@ -41,7 +41,7 @@ export default function Home() {
 
         <Widget>
           <Widget.Header>
-            <h1>Lil Peep</h1>
+            <h1>{db.title}</h1>
           </Widget.Header>
 
           <Widget.Content>

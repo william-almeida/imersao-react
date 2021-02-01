@@ -22,9 +22,33 @@ export default function QuizPage() {
               {` ${db.questions.length}`}
             </h3>
           </Widget.Header>
+        
+
+          <img
+            alt="Descrição"
+            style={{
+              width: '100%',
+              height: '150px',
+              objectFit: 'cover',
+            }}
+            src="https://placehold.it/400x400"
+          />
+
+          <Widget.Content>
+            <h2>
+              Título
+            </h2>
+            <p>
+              descrição
+            </p>
+
+            <Button>
+              Confirmar
+            </Button>
+
+          </Widget.Content>
         </Widget>
       </QuizContainer>
-
     </QuizBackground>
   );
 }

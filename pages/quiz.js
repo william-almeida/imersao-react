@@ -21,55 +21,66 @@ function LoadingWidget() {
   );
 }
 
+function QuestionWidget({
+  question,
+  totalQuestions,
+  questionIndex,
+}) {
+  return (
+    <Widget>
+      <Widget.Header>
+        {/* Primeiro par de chaves: react
+        Segundo par de chaves: JS */}
+        <h3>{`Pergunta ${questionIndex + 1} de ${totalQuestions}`}</h3>
+      </Widget.Header>
 
+      <img
+        alt="Descrição"
+        style={{
+          width: '100%',
+          height: '150px',
+          objectFit: 'cover',
+        }}
+        src={question.image}
+      />
+
+      <Widget.Content>
+        <h2>
+          {question.title}
+        </h2>
+        <p>
+          {question.description}
+        </p>
+
+        <Button type="submit">
+          Confirmar
+        </Button>
+
+      </Widget.Content>
+    </Widget>
+  );
+}
+
+// PÁGINA QUIZ
 export default function QuizPage() {
+  const totalQuestions = db.questions.length;
+  const questionIndex = 0;
+  const question = db.questions[questionIndex];
   return (
     <QuizBackground backgroundImage={db.bg}>
       <QuizContainer>
         <QuizLogo />
-        <Widget>
-          <Widget.Header>
-            {/* <BackLinkArrow href="/" /> */}
-            <h3>
-              Pergunta
-              1
-              de
-              {` ${db.questions.length}`}
-            </h3>
-          </Widget.Header>
-        
 
-          <img
-            alt="Descrição"
-            style={{
-              width: '100%',
-              height: '150px',
-              objectFit: 'cover',
-            }}
-            src="https://placehold.it/400x400"
-          />
-
-          <Widget.Content>
-            <h2>
-              Título
-            </h2>
-            <p>
-              descrição
-            </p>
-
-            <Button>
-              Confirmar
-            </Button>
-
-          </Widget.Content>
-        </Widget>
+        <QuestionWidget
+          question={question}
+          questionIndex={questionIndex}
+          totalQuestions={totalQuestions}
+        />
         <LoadingWidget />
       </QuizContainer>
     </QuizBackground>
   );
 }
-
-
 
 // function QuestionWidget({
 //   question,

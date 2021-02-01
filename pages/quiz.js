@@ -7,6 +7,21 @@ import QuizBackground from '../src/components/QuizBackground';
 import QuizContainer from '../src/components/QuizContainer';
 import Button from '../src/components/Button';
 
+function LoadingWidget() {
+  return (
+    <Widget>
+      <Widget.Header>
+        Carregando...
+      </Widget.Header>
+
+      <Widget.Content>
+        [Desafio do Loading]
+      </Widget.Content>
+    </Widget>
+  );
+}
+
+
 export default function QuizPage() {
   return (
     <QuizBackground backgroundImage={db.bg}>
@@ -48,24 +63,13 @@ export default function QuizPage() {
 
           </Widget.Content>
         </Widget>
+        <LoadingWidget />
       </QuizContainer>
     </QuizBackground>
   );
 }
 
-// function LoadingWidget() {
-//   return (
-//     <Widget>
-//       <Widget.Header>
-//         Carregando...
-//       </Widget.Header>
 
-//       <Widget.Content>
-//         [Desafio do Loading]
-//       </Widget.Content>
-//     </Widget>
-//   );
-// }
 
 // function QuestionWidget({
 //   question,

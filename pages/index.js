@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Head from 'next/head';
@@ -45,8 +46,9 @@ export default function Home() {
           </Widget.Header>
 
           <Widget.Content>
+            {/* eslint-disable-next-line func-names */}
             <form onSubmit={function (eventInfo) {
-              router.push(`/quiz/name=${name}`);
+              router.push(`/quiz?name=${name}`);
               eventInfo.preventDefault();
             }}
             >

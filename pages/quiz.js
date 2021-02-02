@@ -2,7 +2,7 @@
 import React from 'react';
 import db from '../db.json';
 import Widget from '../src/components/Widget';
-// import QuizLogo from '../src/components/QuizLogo';
+import QuizLogo from '../src/components/QuizLogo';
 import QuizBackground from '../src/components/QuizBackground';
 import QuizContainer from '../src/components/QuizContainer';
 import Button from '../src/components/Button';
@@ -118,7 +118,7 @@ export default function QuizPage() {
 
   function handleSubmitQuiz() {
     const nextQuestion = questionIndex + 1;
-    if (nextQuestion < questionIndex) {
+    if (nextQuestion < totalQuestions) {
       setCurrentQuestion(questionIndex + 1);
     } else {
       setScreenState(screenStates.RESULT);
@@ -128,7 +128,7 @@ export default function QuizPage() {
   return (
     <QuizBackground backgroundImage={db.bg}>
       <QuizContainer>
-        {/* <QuizLogo /> */}
+        <QuizLogo />
 
         {screenState === screenStates.QUIZ && (
         <QuestionWidget

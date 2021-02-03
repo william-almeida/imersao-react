@@ -15,11 +15,24 @@ function ResultWidget({ results }) {
       </Widget.Header>
 
       <Widget.Content>
-        <p>Voce acertou x perguntas </p>
+        <p>
+          Voce acertou &nbsp;
+          {/* {results.reduce((somatoriaAtual, resultAtual) => {
+            const isAcerto = resultAtual === true;
+            if (isAcerto) {
+              return somatoriaAtual + 1;
+            }
+            return somatoriaAtual;
+          }, 0)} */}
+          {results.filter((x) => x).length}
+          &nbsp; perguntas
+        </p>
         <ul>
-          {results.map((result) => (
-            <li>
-              #01 Resultado:
+          {results.map((result, index) => (
+            <li key={`result__${result}`}>
+              #0
+              {index + 1}
+              &nbsp;Resultado:
               {result === true ? 'Acertou' : 'Errou'}
             </li>
           ))}
@@ -48,9 +61,9 @@ function QuestionWidget({
   questionIndex,
   totalQuestions,
   onSubmit,
+  addResult,
 }) {
   const [selectedAlternative, setSelectedAlternative] = React.useState(undefined);
-  // const results = [true, false, false]
   const [isQuestionSubmited, setIsQuestionSubmited] = React.useState(false);
   const questionId = `question__${questionIndex}`;
   const isCorrect = selectedAlternative === question.answer;
@@ -87,6 +100,7 @@ function QuestionWidget({
             infosDoEvento.preventDefault();
             setIsQuestionSubmited(true);
             setTimeout(() => {
+              addResult(isCorrect);
               onSubmit();
               setIsQuestionSubmited(false);
               setSelectedAlternative(undefined);
@@ -104,6 +118,7 @@ function QuestionWidget({
               >
                 {/* A L T E R N A T I V E S */}
                 <input
+                  style={{ display: 'none'}}
                   id={alternativeId}
                   name={questionId}
                   onChange={() => setSelectedAlternative(alternativeIndex)}
@@ -136,16 +151,23 @@ const screenStates = {
 };
 // PÁGINA QUIZ
 export default function QuizPage() {
-  const [screenState, setScreenState] = React.useState(screenStates.RESULT);
-  const [results, setResults] = React.useState([true, false, false]);
+  const [screenState, setScreenState] = React.useState(screenStates.LOADING);
+  const [results, setResults] = React.useState([]);
   const totalQuestions = db.questions.length;
   const [currentQuestion, setCurrentQuestion] = React.useState(0);
   const questionIndex = currentQuestion;
   const question = db.questions[questionIndex];
 
+  function addResult(result) {
+    setResults([
+      ...results,
+      result,
+    ]);
+  }
+
   React.useEffect(() => {
     setTimeout(() => {
-      // setScreenState(screenStates.QUIZ);
+      setScreenState(screenStates.QUIZ);
     }, 1 * 1000);
   }, []);
 
@@ -174,6 +196,7 @@ export default function QuizPage() {
           questionIndex={questionIndex}
           totalQuestions={totalQuestions}
           onSubmit={handleSubmitQuiz}
+          addResult={addResult}
         />
         )}
         {screenState === screenStates.LOADING && <LoadingWidget />}

@@ -27,12 +27,17 @@ function QuestionWidget({
   totalQuestions,
   onSubmit,
 }) {
+
+  const [selectedAlternative, setSelectedAlternative] = React.useState(undefined);
+  const [isQuestionSubmited, setIsQuestionSubmited] = React.useState(false);
   const questionId = `question__${questionIndex}`;
+  const isCorrect = selectedAlternative === question.answer;
+  const hasAlternativeSelected = selectedAlternative !== undefined;
+
   return (
     <Widget>
       <Widget.Header>
-        {/* Primeiro par de chaves: react
-        Segundo par de chaves: JS */}
+        {/* Primeiro par de chaves: react || Segundo par de chaves: JS */}
         <h3>{`Pergunta ${questionIndex + 1} de ${totalQuestions}`}</h3>
       </Widget.Header>
 
@@ -58,7 +63,12 @@ function QuestionWidget({
         <form
           onSubmit={(infosDoEvento) => {
             infosDoEvento.preventDefault();
-            onSubmit();
+            setIsQuestionSubmited(true);
+            setTimeout(() => {
+              onSubmit();
+              setIsQuestionSubmited(false);
+              setSelectedAlternative(undefined);
+            }, 2 * 1000);
           }}
         >
           {question.alternatives.map((alternative, alternativeIndex) => {
@@ -67,11 +77,14 @@ function QuestionWidget({
               <Widget.Topic
                 // tag <a> com uma tag <label>
                 as="label"
+                key={alternativeId}
                 htmlFor={alternativeId}
               >
+                {/* A L T E R N A T I V E S */}
                 <input
                   id={alternativeId}
                   name={questionId}
+                  onChange={() => setSelectedAlternative(alternativeIndex)}
                   type="radio"
                 />
                 {alternative}
@@ -82,9 +95,11 @@ function QuestionWidget({
           {/* <pre>
             {JSON.stringify(question, null, 2)}
           </pre> */}
-          <Button type="submit">
+          <Button type="submit" disabled={!hasAlternativeSelected}>
             Confirmar
           </Button>
+          {isQuestionSubmited && isCorrect && <p>Você acertou!</p>}
+          {isQuestionSubmited && !isCorrect && <p>Você Errou!</p>}
         </form>
       </Widget.Content>
     </Widget>
@@ -124,7 +139,7 @@ export default function QuizPage() {
       setScreenState(screenStates.RESULT);
     }
   }
-
+  // retorno que vai ser renderizado
   return (
     <QuizBackground backgroundImage={db.bg}>
       <QuizContainer>

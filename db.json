@@ -1,4 +1,3 @@
-
 {
     "bg": "https://www.rollingstone.com/wp-content/uploads/2019/03/Lil-Peep-by-Alex-Reside-49L.jpg",
     "title": "Lil Peep Quiz",
@@ -46,10 +45,10 @@
       "colors": {
         "primary": "#a00d7c",
         "secondary": "#f628c2",
-        "mainBg": "#35172e",
+        "mainBg": "#35172eF7",
         "contrastText": "#FFFFFF",
         "wrong": "#FF5722",
-        "success": "#4CAF50"
+        "success": "FF5722"
       },
       "borderRadius": "4px"
     }

@@ -23,7 +23,7 @@ const Widget = styled.div`
 
 Widget.Header = styled.header`
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   aling-items: center;
   padding: 18px 32px;
   background-color: ${({ theme }) => theme.colors.primary};
@@ -50,7 +50,7 @@ Widget.Topic = styled.a`
 outline: 0;
 text-decoration: none;
 color: ${({ theme }) => theme.colors.contrastText};
-background-color: ${({ theme }) => `${theme.colors.primary}40`};
+background-color: ${({ theme }) => `${theme.colors.primary}99`};
 padding: 10px 15px;
 margin-bottom: 8px;
 cursor: pointer;
@@ -60,7 +60,8 @@ display: block;
 
 &:hover,
 &:focus {
-  opacity: .5;
+  opacity: 0.6;
+  padding: 12px 15px 12px 30px;
 }
 `;
 export default Widget;

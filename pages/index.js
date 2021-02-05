@@ -17,7 +17,7 @@ const QuizContainer = styled.div`
 width: 100%;
 max-width: 350px;
 padding-top: 45px;
-margin: auto 10%;
+margin: auto 5%;
 @media sreen and (max-width: 500px) {
 margin: auto;
 padding: 15px;
@@ -61,7 +61,7 @@ export default function Home() {
                 value={name}
               />
               <Button type="submit" disabled={name.length === 0}>
-                {`Jogar ${name}`}
+                Jogar
               </Button>
             </form>
           </Widget.Content>
@@ -71,8 +71,13 @@ export default function Home() {
 
         <Widget>
           <Widget.Content>
-            <h1>Lil Peep</h1>
-            <p>lorem imp askjdhkb o  po sjd jashd </p>
+            <h1>Quizes da galera</h1>
+            <p>
+              Lorem ipsum dolor sit amet,
+              consectetur adipiscing elit,
+              sed do eiusmod tempor incididunt
+              ut labore et dolore magna aliqua.
+            </p>
           </Widget.Content>
         </Widget>
 

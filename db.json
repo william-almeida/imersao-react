@@ -7,25 +7,27 @@
         "image": "https://media.giphy.com/media/l5gcp2e2zzrSE/giphy.gif",
         "title": "Qual o nome do Peep?",
         "description": "Essa é pra aquecer",
-        "answer": 2,
+        "answer": 1,
         "alternatives": [
-          "Gus",
-          "Robert",
-          "Peter",
-          "Jhon"
-        ]
+          "Jhon Nickson",
+          "Gustav Elijah Åhr",
+          "Nickson Gus",
+          "Jhon Elijah"
+        ],
+        "feedback": "Gustav Elijah Åhr, nada fácil de se pronunciar"
       },
       {
-        "image": "https://media.giphy.com/media/xUOxf3yDKCuwpOlT3i/giphy.gif",
-        "title": "Qual o nome do Peep?",
-        "description": "Essa é pra aquecer",
+        "image": "https://pm1.narvii.com/6828/452522be7be6a4c9a02e4a22c95172c0a33ebb7av2_hq.jpg",
+        "title": "Lil Peep nasceu próximo de qual data comemorativa?",
+        "description": "Level easy",
         "answer": 2,
         "alternatives": [
-          "Gus",
-          "Robert",
-          "Peter",
-          "Jhon"
-        ]
+          "Natal",
+          "Páscoa",
+          "Halloween",
+          "Carnaval"
+        ],
+        "feedback": "Nasceu em 01 de Novembro, 1 dia depois do Halloween"
       },
       {
         "image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
@@ -35,12 +37,14 @@
         "alternatives": [
            "background: linear-gradient(#e66465, #9198e5);",
            "background: gradient(#e66465, #9198e5);"
-        ]
+        ],
+        "feedback": "Gustav Elijah Åhr, nada fácil de se pronunciar"
       }
     ],
     "external": [
       ""
     ],
+    "loopBg": "https://media.giphy.com/media/l3I0LdTCoFUtjdOYV6/giphy.gif",
     "theme": {
       "colors": {
         "primary": "#a00d7c",

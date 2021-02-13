@@ -46,11 +46,19 @@ function LoadingWidget() {
   return (
     <Widget>
       <Widget.Header>
-        Carregando...
+        <h1>Carregando</h1>
       </Widget.Header>
 
       <Widget.Content>
-        [Desafio do Loading]
+        <img
+          alt="Descrição"
+          style={{
+            width: '100%',
+            objectFit: 'cover',
+            margin: 'auto',
+          }}
+          src={db.loopBg}
+        />
       </Widget.Content>
     </Widget>
   );
@@ -68,6 +76,7 @@ function QuestionWidget({
   const questionId = `question__${questionIndex}`;
   const isCorrect = selectedAlternative === question.answer;
   const hasAlternativeSelected = selectedAlternative !== undefined;
+  const alternativeFeedback = question.feedback;
 
   return (
     <Widget>
@@ -139,8 +148,8 @@ function QuestionWidget({
           <Button type="submit" disabled={!hasAlternativeSelected}>
             Confirmar
           </Button>
-          {isQuestionSubmited && isCorrect && <p>Você acertou!</p>}
-          {isQuestionSubmited && !isCorrect && <p>Você Errou!</p>}
+          {isQuestionSubmited && isCorrect && <p>{alternativeFeedback}</p>}
+          {isQuestionSubmited && !isCorrect && <p>{alternativeFeedback}</p>}
         </AlternativesForm>
       </Widget.Content>
     </Widget>
@@ -172,7 +181,7 @@ export default function QuizPage() {
   React.useEffect(() => {
     setTimeout(() => {
       setScreenState(screenStates.QUIZ);
-    }, 1 * 1000);
+    }, 4 * 1000);
   }, []);
 
   // React chama de: Efeitos || Effects]

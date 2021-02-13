@@ -33,7 +33,7 @@ function ResultWidget({ results }) {
               #0
               {index + 1}
               &nbsp;Resultado:
-              {result === true ? 'Acertou' : 'Errou'}
+              {result === true ? 'Acertou' : 'Errou' }
             </li>
           ))}
         </ul>
@@ -113,7 +113,7 @@ function QuestionWidget({
               onSubmit();
               setIsQuestionSubmited(false);
               setSelectedAlternative(undefined);
-            }, 2 * 1000);
+            }, 5 * 1000);
           }}
         >
           {question.alternatives.map((alternative, alternativeIndex) => {
@@ -148,8 +148,19 @@ function QuestionWidget({
           <Button type="submit" disabled={!hasAlternativeSelected}>
             Confirmar
           </Button>
-          {isQuestionSubmited && isCorrect && <p>{alternativeFeedback}</p>}
-          {isQuestionSubmited && !isCorrect && <p>{alternativeFeedback}</p>}
+          {isQuestionSubmited && isCorrect && (
+          <Widget.Feedback>
+            <h1>Feedback</h1>
+            Parabéns!&nbsp;
+            {alternativeFeedback}
+          </Widget.Feedback>
+          )}
+          {isQuestionSubmited && !isCorrect && (
+          <Widget.Feedback>
+            <h1>Feedback</h1>
+            {alternativeFeedback}
+          </Widget.Feedback>
+          )}
         </AlternativesForm>
       </Widget.Content>
     </Widget>
@@ -177,7 +188,7 @@ export default function QuizPage() {
       result,
     ]);
   }
-
+  // loading screen
   React.useEffect(() => {
     setTimeout(() => {
       setScreenState(screenStates.QUIZ);

@@ -64,4 +64,18 @@ display: block;
   padding: 12px 15px 12px 30px;
 }
 `;
+
+Widget.Feedback = styled.div`
+  margin-top: 24px;
+  padding: 10px 15px;
+  border-radius: ${({ theme }) => theme.borderRadius};
+  background-color: #a00d7c;
+  h1 {
+    text-align: center;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: solid 1px #fff;
+  }
+`;
+
 export default Widget;

@@ -23,12 +23,31 @@ const Widget = styled.div`
 
 Widget.Header = styled.header`
   display: flex;
-  justify-content: center;
-  aling-items: center;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+  align-items: center;
   padding: 18px 32px;
   background-color: ${({ theme }) => theme.colors.primary};
   * {
     margin: 0;
+  }
+  h1 {
+    font-size: 20px;
+  }
+  a {
+    display: block;
+    padding: 8px 10px;
+    border-radius: ${({ theme }) => theme.borderRadius};
+    background-color: ${({ theme }) => theme.colors.secondary};
+    text-decoration: none;
+    font-weight: 600;
+    color: ${({ theme }) => theme.colors.contrastText};
+    transition: 400ms;
+  }
+  a:hover {
+    letter-spacing: 2px;
+    background-color: ${({ theme }) => `${theme.colors.secondary}66`};
   }
 `;
 

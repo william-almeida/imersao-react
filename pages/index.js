@@ -33,7 +33,6 @@ export default function Home() {
     <QuizBackground backgroundImage={db.bg}>
       <Head>
         <title>{db.title}</title>
-
       </Head>
       <QuizContainer>
         <QuizLogo />

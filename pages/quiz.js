@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import db from '../db.json';
+import { useRouter } from 'next/router';
 import Widget from '../src/components/Widget';
 import QuizBackground from '../src/components/QuizBackground';
 import QuizContainer from '../src/components/QuizContainer';
@@ -8,32 +9,35 @@ import AlternativesForm from '../src/components/AlternativesForm';
 import Button from '../src/components/Button';
 
 function ResultWidget({ results }) {
+  const router = useRouter();
   return (
     <Widget>
       <Widget.Header>
+        <button
+          type="button"
+          onClick={function (eventInfo) {
+            router.push('/');
+            eventInfo.preventDefault();
+          }}
+        >
+          Home
+        </button>
         <h1>Resultados</h1>
       </Widget.Header>
 
       <Widget.Content>
         <p>
-          Voce acertou &nbsp;
-          {/* {results.reduce((somatoriaAtual, resultAtual) => {
-            const isAcerto = resultAtual === true;
-            if (isAcerto) {
-              return somatoriaAtual + 1;
-            }
-            return somatoriaAtual;
-          }, 0)} */}
+          Parabéns!! Voce conseguiu acertar &nbsp;
           {results.filter((x) => x).length}
           &nbsp; perguntas
         </p>
         <ul>
           {results.map((result, index) => (
             <li key={`result__${result}`}>
-              #0
+              A&nbsp;
               {index + 1}
-              &nbsp;Resultado:
-              {result === true ? 'Acertou' : 'Errou' }
+              º&nbsp;pergunta você:&nbsp;
+              {result === true ? 'acertou' : 'errou' }
             </li>
           ))}
         </ul>
